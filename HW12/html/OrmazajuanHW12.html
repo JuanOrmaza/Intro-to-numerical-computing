@@ -1,0 +1,365 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazajuanHW12</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-12-01"><meta name="DC.source" content="OrmazajuanHW12.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">CS375 HW12</a></li><li><a href="#2">Problem 2c</a></li><li><a href="#3">Problem 3a</a></li><li><a href="#4">Problem 3b</a></li><li><a href="#5">Problem 3c</a></li><li><a href="#6">Problem 3d</a></li><li><a href="#7">Problem 4c</a></li></ul></div><h2 id="1">CS375 HW12</h2><p>Juan Alejandro Ormaza November 30, 2021</p><pre class="codeinput">clear <span class="string">all</span>;
+clc;
+close <span class="string">all</span>;
+</pre><h2 id="2">Problem 2c</h2><pre class="codeinput">A= [1 -1;2 3];
+b=[1;1];
+
+qr_solve(A,b)
+</pre><pre class="codeoutput">
+ans =
+
+    0.8000
+   -0.2000
+
+</pre><h2 id="3">Problem 3a</h2><pre class="codeinput">N=100;
+
+[x,y] = generate_ls_data(N);
+
+figure();
+plot(x,y,<span class="string">'o'</span>);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+</pre><img vspace="5" hspace="5" src="OrmazajuanHW12_01.png" alt=""> <h2 id="4">Problem 3b</h2><pre class="codeinput"><span class="comment">% A'Ax=A'b</span>
+
+V=Vandermonde(x);
+
+AtA=V'*V;
+AtB=V'*y;
+c=AtA\AtB;
+
+coefficients = c;
+coefficients=rot90(coefficients);
+coefficients=rot90(coefficients);
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients,xfine);
+
+figure();
+plot(x,y,<span class="string">'o'</span>);
+hold <span class="string">on</span>
+plot(xfine,yfine);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+
+fprintf(<span class="string">"the coefficients are: \n"</span>)
+coefficients
+</pre><pre class="codeoutput">the coefficients are: 
+
+coefficients =
+
+   12.8410
+  -19.4916
+    6.9961
+   -0.3899
+
+</pre><img vspace="5" hspace="5" src="OrmazajuanHW12_02.png" alt=""> <h2 id="5">Problem 3c</h2><pre class="codeinput">b=y;
+c2=qr_solve(V,b);
+
+coefficients2 = c2(1:4);
+coefficients2=rot90(coefficients2);
+coefficients2=rot90(coefficients2);
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients2,xfine);
+
+figure();
+plot(x,y,<span class="string">'o'</span>);
+hold <span class="string">on</span>
+plot(xfine,yfine);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+
+fprintf(<span class="string">"the coefficients are: \n"</span>)
+coefficients2
+</pre><pre class="codeoutput">the coefficients are: 
+
+coefficients2 =
+
+   12.8410
+  -19.4916
+    6.9961
+   -0.3899
+
+</pre><img vspace="5" hspace="5" src="OrmazajuanHW12_03.png" alt=""> <h2 id="6">Problem 3d</h2><pre class="codeinput">A=V;
+
+[U,S,V] = svd(A);
+sigma=inv(S(1:4,1:4));
+c3=zeros(4,1);
+
+Ut=U';
+
+<span class="keyword">for</span> i=1:4
+    c3(i)=sum((sigma(i,i)*Ut(i,i).*b)*V(i,i));
+<span class="keyword">end</span>
+
+
+coefficients3 = c3(1:4);
+coefficients3=rot90(coefficients3);
+coefficients3=rot90(coefficients3);
+
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients3,xfine);
+
+figure();
+plot(x,y,<span class="string">'o'</span>);
+hold <span class="string">on</span>
+plot(xfine,yfine);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y'</span>);
+
+fprintf(<span class="string">"the coefficients are: \n"</span>)
+coefficients3
+</pre><pre class="codeoutput">the coefficients are: 
+
+coefficients3 =
+
+   -2.6596
+   -0.2422
+   -0.2000
+   -0.1527
+
+</pre><img vspace="5" hspace="5" src="OrmazajuanHW12_04.png" alt=""> <h2 id="7">Problem 4c</h2><pre class="codeinput">f=@(u,t) -u^2 - 2*sin(2*t) + (cos(2*t))^2;
+
+a=0;
+b=1;
+u0=1;
+
+n = [10, 20, 40, 80];
+error=zeros(length(n),1);
+valAt1=zeros(length(n),1);
+h = (b-a)./n;
+
+p=zeros(length(n),1);
+
+<span class="keyword">for</span> i=1:length(n)
+    y=euler(n(i),a,b,u0,f);
+    valAt1(i)=y(end);
+    error(i)=abs(cos(2*1)-valAt1(i));
+    <span class="keyword">if</span>(i&gt;1)
+        p(i)=log(error(i)/error(i-1))/log(h(i)/h(i-1));
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+fprintf(<span class="string">"h\t\t approximation t=1\t error\t\t order of convergence p\n"</span>);
+fprintf(<span class="string">"%1.6f\t %1.6f\t\t %1.10f\t %2.3f\n"</span>,[h ;valAt1'; error'; p'])
+</pre><pre class="codeoutput">h		 approximation t=1	 error		 order of convergence p
+0.100000	 -0.166287		 0.2498599583	 0.000
+0.050000	 -0.293181		 0.1229661619	 1.023
+0.025000	 -0.355195		 0.0609516664	 1.013
+0.012500	 -0.385809		 0.0303381381	 1.007
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% CS375 HW12
+% Juan Alejandro Ormaza
+% November 30, 2021
+
+clear all;
+clc;
+close all;
+
+%% Problem 2c
+
+A= [1 -1;2 3];
+b=[1;1];
+
+qr_solve(A,b)
+
+%% Problem 3a
+
+N=100;
+
+[x,y] = generate_ls_data(N);
+
+figure();
+plot(x,y,'o');
+xlabel('x');
+ylabel('y');
+
+
+%% Problem 3b
+
+% A'Ax=A'b
+
+V=Vandermonde(x);
+
+AtA=V'*V;
+AtB=V'*y;
+c=AtA\AtB;
+
+coefficients = c;
+coefficients=rot90(coefficients);
+coefficients=rot90(coefficients);
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients,xfine);
+
+figure();
+plot(x,y,'o');
+hold on
+plot(xfine,yfine);
+xlabel('x');
+ylabel('y');
+
+fprintf("the coefficients are: \n")
+coefficients
+
+%% Problem 3c
+
+b=y;
+c2=qr_solve(V,b);
+
+coefficients2 = c2(1:4);
+coefficients2=rot90(coefficients2);
+coefficients2=rot90(coefficients2);
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients2,xfine);
+
+figure();
+plot(x,y,'o');
+hold on
+plot(xfine,yfine);
+xlabel('x');
+ylabel('y');
+
+fprintf("the coefficients are: \n")
+coefficients2
+
+
+
+%% Problem 3d
+A=V;
+
+[U,S,V] = svd(A);
+sigma=inv(S(1:4,1:4));
+c3=zeros(4,1);
+
+Ut=U';
+
+for i=1:4
+    c3(i)=sum((sigma(i,i)*Ut(i,i).*b)*V(i,i));
+end
+
+
+coefficients3 = c3(1:4);
+coefficients3=rot90(coefficients3);
+coefficients3=rot90(coefficients3);
+
+
+xfine = linspace(0,1,1000);
+yfine = polyval(coefficients3,xfine);
+
+figure();
+plot(x,y,'o');
+hold on
+plot(xfine,yfine);
+xlabel('x');
+ylabel('y');
+
+fprintf("the coefficients are: \n")
+coefficients3
+
+
+%% Problem 4c
+
+f=@(u,t) -u^2 - 2*sin(2*t) + (cos(2*t))^2;
+
+a=0;
+b=1;
+u0=1;
+
+n = [10, 20, 40, 80];
+error=zeros(length(n),1);
+valAt1=zeros(length(n),1);
+h = (b-a)./n;
+
+p=zeros(length(n),1);
+
+for i=1:length(n)
+    y=euler(n(i),a,b,u0,f);
+    valAt1(i)=y(end);
+    error(i)=abs(cos(2*1)-valAt1(i));
+    if(i>1)
+        p(i)=log(error(i)/error(i-1))/log(h(i)/h(i-1));
+    end
+end
+
+fprintf("h\t\t approximation t=1\t error\t\t order of convergence p\n");
+fprintf("%1.6f\t %1.6f\t\t %1.10f\t %2.3f\n",[h ;valAt1'; error'; p'])
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
