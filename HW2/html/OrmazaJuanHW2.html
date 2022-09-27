@@ -1,0 +1,252 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazaJuanHW2</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-07"><meta name="DC.source" content="OrmazaJuanHW2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">HomeWork 2</a></li><li><a href="#2">problem 2.b</a></li><li><a href="#3">problem 3.a</a></li><li><a href="#4">problem 3.b</a></li><li><a href="#5">problem 3.c</a></li><li><a href="#6">problem 4.a</a></li><li><a href="#7">problem 4.b</a></li><li><a href="#8">problem 4.c</a></li><li><a href="#9">problem 4.d</a></li></ul></div><h2 id="1">HomeWork 2</h2><p>Juan Alejandro Ormaza Sep 7 2020 CS375</p><pre class="codeinput">clear <span class="string">all</span>; clc;
+format <span class="string">long</span> <span class="string">e</span>
+</pre><h2 id="2">problem 2.b</h2><pre class="codeinput">x=12:1:15;
+x_k=num2str(1+(1./10.^(x)),25);
+fprintf(x_k); <span class="comment">% this line prints the x_k values for k=12 to k=15</span>
+</pre><pre class="codeoutput">1.000000000001000088900582      1.000000000000099920072216      1.000000000000009992007222      1.000000000000001110223025</pre><h2 id="3">problem 3.a</h2><pre class="codeinput">sinErrorExpansion=@(n) 1/(factorial(2*n+1));
+n=1;
+
+<span class="keyword">while</span> sinErrorExpansion(n)&gt;2e-8
+    n=n+1;
+<span class="keyword">end</span>
+
+n=n-1; <span class="comment">%we take one from n because we know that at the last loop of the while</span>
+<span class="comment">% loop the condition for n was not met.</span>
+n
+</pre><pre class="codeoutput">
+n =
+
+     5
+
+</pre><h2 id="4">problem 3.b</h2><pre class="codeinput">test=my_sin(1,5) <span class="comment">% this is a test to find if my_sin works</span>
+test2=sin(1) <span class="comment">% and it appears it did, since the answer resembles</span>
+<span class="comment">% the built-in sin(x) function</span>
+</pre><pre class="codeoutput">
+test =
+
+     8.414709846480680e-01
+
+
+test2 =
+
+     8.414709848078965e-01
+
+</pre><h2 id="5">problem 3.c</h2><pre class="codeinput">x=linspace(0,pi/2,100); <span class="comment">% creates the x array for the domain of the function.</span>
+error1 = abs(sin(x)-my_sin(x,3));
+error2 = abs(sin(x)-my_sin(x,5));
+
+figure();
+semilogy(x,error1,x,error2);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'absolute error of approximation'</span>);
+title(<span class="string">'absolute error of sin(x)'</span>);
+legend(<span class="string">'n=3'</span>,<span class="string">'n=5'</span>)
+
+<span class="comment">% from the figure we see that the error is smaller than 2e-8 (the bound)</span>
+<span class="comment">% for n=5 (my result from 3.a). For n=3, the situation is different as we</span>
+<span class="comment">% find the error is larger and actually exceeds 2e-8 after x~=0.5.</span>
+</pre><img vspace="5" hspace="5" src="OrmazaJuanHW2_01.png" alt=""> <h2 id="6">problem 4.a</h2><pre class="codeinput">right_side=@(a,b,c) sqrt(b^2 - 4*a*c);
+
+y=right_side(0.5,1000,5e-7);
+x=1000; <span class="comment">%% this is the same as b</span>
+
+<span class="comment">%%%from the lost of precision theorem we get.</span>
+lostOfPrecision=1-y/x
+</pre><pre class="codeoutput">
+lostOfPrecision =
+
+     5.000444502911705e-13
+
+</pre><h2 id="7">problem 4.b</h2><pre class="codeinput"><span class="comment">%%%here we compute the "true" roots using the matlab built-in functions.</span>
+poli = [0.5 1000 5e-7];
+realRoots = roots(poli)
+</pre><pre class="codeoutput">
+realRoots =
+
+    -1.999999999999500e+03
+    -5.000000000001249e-10
+
+</pre><h2 id="8">problem 4.c</h2><pre class="codeinput">rootFunction=@(a,b,c) -b + sqrt(b^2 - 4*a*c);
+myResult = rootFunction(0.5,1000,5e-7)
+<span class="comment">%%%the result of using equation is innacurate because of loss of precision.</span>
+<span class="comment">%%%However, this is to be expected as we lost 12 to 13 bits of precision</span>
+<span class="comment">%%%according to part a of this problem.</span>
+</pre><pre class="codeoutput">
+myResult =
+
+    -4.999947122996673e-10
+
+</pre><h2 id="9">problem 4.d</h2><pre class="codeinput">newRootFunction=@(a,b,c) -2*c/(b + sqrt(b^2 - 4*a*c));
+newRootFunction(0.5,1000,5e-7)
+
+<span class="comment">%%%by modifying the formulation for our solution we get to a more</span>
+<span class="comment">% "accurate" solution that more closely resembles the result given by the</span>
+<span class="comment">% roots function. In fact, it is the same result up to the 16 decimal</span>
+<span class="comment">% point.</span>
+</pre><pre class="codeoutput">
+ans =
+
+    -5.000000000001249e-10
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% HomeWork 2
+% Juan Alejandro Ormaza
+% Sep 7 2020
+% CS375
+
+clear all; clc;
+format long e
+%% problem 2.b
+
+x=12:1:15;
+x_k=num2str(1+(1./10.^(x)),25);
+fprintf(x_k); % this line prints the x_k values for k=12 to k=15
+
+
+%% problem 3.a
+
+sinErrorExpansion=@(n) 1/(factorial(2*n+1));
+n=1;
+
+while sinErrorExpansion(n)>2e-8
+    n=n+1;
+end
+
+n=n-1; %we take one from n because we know that at the last loop of the while 
+% loop the condition for n was not met.
+n
+
+%% problem 3.b
+
+test=my_sin(1,5) % this is a test to find if my_sin works
+test2=sin(1) % and it appears it did, since the answer resembles
+% the built-in sin(x) function
+
+%% problem 3.c
+
+x=linspace(0,pi/2,100); % creates the x array for the domain of the function.
+error1 = abs(sin(x)-my_sin(x,3));
+error2 = abs(sin(x)-my_sin(x,5));
+
+figure();
+semilogy(x,error1,x,error2);
+xlabel('x');
+ylabel('absolute error of approximation');
+title('absolute error of sin(x)');
+legend('n=3','n=5')
+
+% from the figure we see that the error is smaller than 2e-8 (the bound)
+% for n=5 (my result from 3.a). For n=3, the situation is different as we
+% find the error is larger and actually exceeds 2e-8 after x~=0.5.
+
+
+
+
+%% problem 4.a
+
+right_side=@(a,b,c) sqrt(b^2 - 4*a*c);
+
+y=right_side(0.5,1000,5e-7);
+x=1000; %% this is the same as b
+
+%%%from the lost of precision theorem we get.
+lostOfPrecision=1-y/x
+
+%% problem 4.b
+
+%%%here we compute the "true" roots using the matlab built-in functions.
+poli = [0.5 1000 5e-7];
+realRoots = roots(poli)
+
+%% problem 4.c
+
+rootFunction=@(a,b,c) -b + sqrt(b^2 - 4*a*c);
+myResult = rootFunction(0.5,1000,5e-7)
+%%%the result of using equation is innacurate because of loss of precision.
+%%%However, this is to be expected as we lost 12 to 13 bits of precision
+%%%according to part a of this problem.
+
+
+%% problem 4.d
+
+newRootFunction=@(a,b,c) -2*c/(b + sqrt(b^2 - 4*a*c));
+newRootFunction(0.5,1000,5e-7)
+
+%%%by modifying the formulation for our solution we get to a more
+% "accurate" solution that more closely resembles the result given by the
+% roots function. In fact, it is the same result up to the 16 decimal
+% point.
+
+
+##### SOURCE END #####
+--></body></html>

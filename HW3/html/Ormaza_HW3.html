@@ -1,0 +1,299 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Ormaza_HW3</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-15"><meta name="DC.source" content="Ormaza_HW3.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Homework 3</a></li><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 3</a></li><li><a href="#4">Problem 3.A</a></li><li><a href="#5">Problem 3.B</a></li><li><a href="#6">problem 3.b.4</a></li><li><a href="#7">problem iv</a></li><li><a href="#9">note</a></li></ul></div><h2 id="1">Homework 3</h2><pre class="language-matlab">Juan <span class="string">A.</span> <span class="string">Ormaza</span>
+September <span class="string">13</span>, 2021
+CS375
+</pre><pre class="codeinput">clear <span class="string">all</span>; clc; format <span class="string">long</span> <span class="string">e</span>; close <span class="string">all</span>;
+</pre><h2 id="2">Problem 1</h2><pre class="codeinput">central_difference=@(h) (exp(1.5*h)-exp(1.5*-h))./(2*h);
+
+exact_solution = 1.5*exp(1.5*0);
+
+error=@(exact,approx) abs(exact-approx);
+
+h=logspace(-1,-16,16);
+
+approx_array=central_difference(h);
+
+error_array=error(exact_solution,approx_array);
+
+figure(1)
+loglog(h,error_array,<span class="string">'b--o'</span>);
+hold <span class="string">on</span>
+line([power(eps,1/3) power(eps,1/3)],[get(gca,<span class="string">'ylim'</span>)]);
+title(<span class="string">'error in approximation'</span>)
+xlabel(<span class="string">'h'</span>);
+ylabel(<span class="string">'error |exact-approx|'</span>)
+
+fprintf(<span class="string">'Looking at the graph, we can say that result from problem 1d agrees with the graph\n'</span>)
+fprintf(<span class="string">'this is because the calculation yields an error of C*machine_epsilon^1/3 and the\n'</span>)
+fprintf(<span class="string">'lowest point of the graph is found at that value\n'</span>)
+</pre><pre class="codeoutput">Looking at the graph, we can say that result from problem 1d agrees with the graph
+this is because the calculation yields an error of C*machine_epsilon^1/3 and the
+lowest point of the graph is found at that value
+</pre><img vspace="5" hspace="5" src="Ormaza_HW3_01.png" alt=""> <h2 id="3">Problem 3</h2><pre class="codeinput">alpha = 8;
+
+A=[1 5 -3;4 -1 9;7 -2 alpha];
+B=[1;2;3];
+</pre><h2 id="4">Problem 3.A</h2><pre class="codeinput"><span class="comment">%i</span>
+x=A\B
+
+<span class="comment">%ii</span>
+determinant=det(A)
+
+<span class="comment">%iii</span>
+rank_of_matrix=rank(A)
+</pre><pre class="codeoutput">
+x =
+
+     4.047619047619047e-01
+     1.547619047619048e-01
+     5.952380952380956e-02
+
+
+determinant =
+
+   168
+
+
+rank_of_matrix =
+
+     3
+
+</pre><h2 id="5">Problem 3.B</h2><pre class="codeinput">alpha = 16;
+
+A=[1 5 -3;4 -1 9;7 -2 alpha];
+
+<span class="comment">%i</span>
+x=A\B
+
+<span class="comment">%ii</span>
+determinant=det(A)
+
+<span class="comment">%iii</span>
+rank_of_matrix=rank(A)
+</pre><pre class="codeoutput">Warning: Matrix is close to singular or badly scaled. Results may be
+inaccurate. RCOND =  3.916763e-18. 
+
+x =
+
+    -1.232205101418091e+15
+     6.161025507090458e+14
+     6.161025507090458e+14
+
+
+determinant =
+
+     1.623106411179671e-14
+
+
+rank_of_matrix =
+
+     2
+
+</pre><h2 id="6">problem 3.b.4</h2><h2 id="7">problem iv</h2><p>Notice that for problem 3.B.iii answer, we find that the rank is 2. This means that the number of independent columns or rows in the matrix is 2. This means, one column is most likely a linear combination of the 2 independent columns. We find that indeed, that is the case. Column three is a linear combination of 1 and 2. To prove this we calculate alpha and beta (see written solution) to calculate the value of these coefficients.</p><p><img src="Ormaza_HW3_eq01278749301301156286.png" alt="$\alpha*(x1,x2,x3)+\beta*(y1,y2,y3) = (z1,z2,z3)$" style="width:219px;height:11px;"></p><h2 id="9">note</h2><p>Notice, MatLab also has trouble find the determinant of the matrix because a singular matrix has no determinant.</p><pre class="codeinput"><span class="comment">%iv</span>
+
+
+alpha=2;
+beta=-1;
+
+column1 = [1;4;7];
+column2 = [5;-1;-2];
+fprintf(<span class="string">'the result of adding the first and second column with coefficients 2 an -1 is:'</span>)
+column3= alpha*column1 + beta*column2
+fprintf(<span class="string">'the third row of the matrix is:'</span>)
+A(:,3)
+fprintf(<span class="string">'therefore, the third column is dependent on the 1st and the 2nd'</span>)
+</pre><pre class="codeoutput">the result of adding the first and second column with coefficients 2 an -1 is:
+column3 =
+
+    -3
+     9
+    16
+
+the third row of the matrix is:
+ans =
+
+    -3
+     9
+    16
+
+therefore, the third column is dependent on the 1st and the 2nd</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Homework 3
+%   Juan A. Ormaza
+%   September 13, 2021
+%   CS375
+%
+clear all; clc; format long e; close all;
+
+%% Problem 1
+
+central_difference=@(h) (exp(1.5*h)-exp(1.5*-h))./(2*h);
+
+exact_solution = 1.5*exp(1.5*0);
+
+error=@(exact,approx) abs(exact-approx);
+
+h=logspace(-1,-16,16);
+
+approx_array=central_difference(h);
+
+error_array=error(exact_solution,approx_array);
+
+figure(1)
+loglog(h,error_array,'bREPLACE_WITH_DASH_DASHo');
+hold on
+line([power(eps,1/3) power(eps,1/3)],[get(gca,'ylim')]);
+title('error in approximation')
+xlabel('h');
+ylabel('error |exact-approx|')
+
+fprintf('Looking at the graph, we can say that result from problem 1d agrees with the graph\n')
+fprintf('this is because the calculation yields an error of C*machine_epsilon^1/3 and the\n')
+fprintf('lowest point of the graph is found at that value\n')
+
+
+%% Problem 3
+
+alpha = 8;
+
+A=[1 5 -3;4 -1 9;7 -2 alpha];
+B=[1;2;3];
+
+%% Problem 3.A
+
+%i
+x=A\B
+
+%ii
+determinant=det(A)
+
+%iii
+rank_of_matrix=rank(A)
+
+%% Problem 3.B
+
+alpha = 16;
+
+A=[1 5 -3;4 -1 9;7 -2 alpha];
+
+%i
+x=A\B
+
+%ii
+determinant=det(A)
+
+%iii
+rank_of_matrix=rank(A)
+
+%% problem 3.b.4
+
+%%% problem iv  
+% Notice that for problem 3.B.iii answer, we find that the rank is 2.
+% This means that the number of independent columns or rows in the matrix
+% is 2. This means, one column is most likely a linear combination of the
+% 2 independent columns. We find that indeed, that is the case. Column
+% three is a linear combination of 1 and 2. To prove this we calculate
+% alpha and beta (see written solution) to calculate the value of these
+% coefficients.
+
+%%%
+% $\alpha*(x1,x2,x3)+\beta*(y1,y2,y3) = (z1,z2,z3)$ 
+
+%%% note
+% Notice, MatLab also has trouble find the determinant of
+% the matrix because a singular matrix has no determinant.
+
+%iv
+
+
+alpha=2;
+beta=-1;
+
+column1 = [1;4;7];
+column2 = [5;-1;-2];
+fprintf('the result of adding the first and second column with coefficients 2 an -1 is:')
+column3= alpha*column1 + beta*column2
+fprintf('the third row of the matrix is:')
+A(:,3)
+fprintf('therefore, the third column is dependent on the 1st and the 2nd')
+
+
+
+
+
+
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>

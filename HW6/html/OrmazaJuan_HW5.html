@@ -1,0 +1,244 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazaJuan_HW5</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-10-06"><meta name="DC.source" content="OrmazaJuan_HW5.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Homework 6</a></li><li><a href="#2">Problem 2.b</a></li><li><a href="#3">Problem 2.c</a></li><li><a href="#4">Problem 2.d</a></li><li><a href="#5">Problem 3.c</a></li><li><a href="#6">Problem 4.a</a></li><li><a href="#7">Problem 4.b</a></li></ul></div><h2 id="1">Homework 6</h2><p>Juan Alejandro Ormaza October 6 2021</p><pre class="codeinput">clear <span class="string">all</span>;clc; close <span class="string">all</span>;
+format <span class="string">LONG</span> <span class="string">E</span>
+</pre><h2 id="2">Problem 2.b</h2><pre class="codeinput">P=20;
+A=gallery(<span class="string">'poisson'</span>,P);
+b = ones(P^2,1);
+
+<span class="comment">% Since both algorithms should be the same, I am going to use norm 2 to</span>
+<span class="comment">% figure the difference between my_jacobi and my_vector_jacobi.</span>
+
+error = norm(my_jacobi(A,b,100)-my_vector_jacobi(A,b,100),2);
+fprintf(<span class="string">"the size of the differnce between my_jacobi and my_vector_jacobi is %2.8f\n"</span>,error);
+</pre><pre class="codeoutput">the size of the differnce between my_jacobi and my_vector_jacobi is 0.00000000
+</pre><h2 id="3">Problem 2.c</h2><pre class="codeinput"><span class="comment">% Since my_jacobi takes too long with p=20 I am going to use p=12 to</span>
+<span class="comment">% calculate the time my algorithms take to run.</span>
+
+P=12;
+A=gallery(<span class="string">'poisson'</span>,P);
+b = ones(P^2,1);
+
+tic
+    x1=my_vector_jacobi(A,b,100);
+t1=toc;
+fprintf(<span class="string">"my vector jacobi takes %2.8f seconds\n"</span>,t1);
+
+tic
+    x2=my_jacobi(A,b,100);
+t2=toc;
+fprintf(<span class="string">"my component-wise jacobi takes %10.8f seconds\n"</span>,t2);
+
+fprintf(<span class="string">"my_vector_jacobi is %10.8f times faster than my_jacobi\n"</span>, t2/t1);
+</pre><pre class="codeoutput">my vector jacobi takes 0.00596608 seconds
+my component-wise jacobi takes 9.96381930 seconds
+my_vector_jacobi is 1670.07721884 times faster than my_jacobi
+</pre><h2 id="4">Problem 2.d</h2><pre class="codeinput">P=[ 10, 20, 40, 80, 160];
+error=zeros(size(P,2),1);
+
+<span class="keyword">for</span> i=1:size(P,2)
+    A=gallery(<span class="string">'poisson'</span>,P(i));
+    b = ones(P(i)^2,1);
+    xtrue=A\b;
+    x=my_vector_jacobi(A,b,100);
+    error(i)=norm(xtrue-x,2)/norm(xtrue,2);
+<span class="keyword">end</span>
+</pre><h2 id="5">Problem 3.c</h2><pre class="codeinput">tot_it = [50, 100, 200, 400, 800, 1600];
+error=zeros(size(tot_it,2),3);
+
+<span class="keyword">for</span> i=1:size(tot_it,2)
+    A=gallery(<span class="string">'poisson'</span>,160);
+    b = ones(160^2,1);
+    xtrue=A\b;
+    x_jacobi=my_vector_jacobi(A,b,tot_it(i));
+    x_CG=my_CG(A,b,tot_it(i));
+    x_gauss=my_gauss_siedel(A,b,tot_it(i));
+    error(i,1)=norm(xtrue-x_jacobi,2)/norm(xtrue,2);
+    error(i,2)=norm(xtrue-x_gauss,2)/norm(xtrue,2);
+    error(i,3)=norm(xtrue-x_CG,2)/norm(xtrue,2);
+<span class="keyword">end</span>
+
+fprintf(<span class="string">"Num Iterations\tError Jacobi\tError GS\tError CG\n"</span>);
+<span class="keyword">for</span> i=1:size(tot_it,2)
+fprintf(<span class="string">"%4.0f\t\t %2.5f\t%2.5f\t\t%2.5f\t\n"</span>,tot_it(i),error(i,1),error(i,2),error(i,3));
+<span class="keyword">end</span>
+</pre><pre class="codeoutput">Num Iterations	Error Jacobi	Error GS	Error CG
+  50		 0.99012	0.98039		0.22322	
+ 100		 0.98039	0.96131		0.00849	
+ 200		 0.96130	0.92453		0.00000	
+ 400		 0.92452	0.85577		0.00000	
+ 800		 0.85574	0.73419		0.00000	
+1600		 0.73415	0.54123		0.00000	
+</pre><h2 id="6">Problem 4.a</h2><pre class="codeinput">P=10;
+A=gallery(<span class="string">'poisson'</span>,P);
+b = ones(P^2,1);
+
+nonZeros = nnz(A)/size(A,1);
+
+fprintf(<span class="string">"The number of nonzeros in A is %3.6f\n"</span>, nonZeros);
+fprintf(<span class="string">"As P increases the number of nonzeros approaches 5."</span>)
+</pre><pre class="codeoutput">The number of nonzeros in A is 4.600000
+As P increases the number of nonzeros approaches 5.</pre><h2 id="7">Problem 4.b</h2><pre class="codeinput">fprintf(<span class="string">"see in attached written solutions.\n"</span>)
+</pre><pre class="codeoutput">see in attached written solutions.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Homework 6
+% Juan Alejandro Ormaza
+% October 6 2021
+clear all;clc; close all;
+format LONG E
+
+%% Problem 2.b
+
+P=20;
+A=gallery('poisson',P);
+b = ones(P^2,1);
+
+% Since both algorithms should be the same, I am going to use norm 2 to
+% figure the difference between my_jacobi and my_vector_jacobi.
+
+error = norm(my_jacobi(A,b,100)-my_vector_jacobi(A,b,100),2);
+fprintf("the size of the differnce between my_jacobi and my_vector_jacobi is %2.8f\n",error);
+
+%% Problem 2.c
+
+% Since my_jacobi takes too long with p=20 I am going to use p=12 to
+% calculate the time my algorithms take to run.
+
+P=12;
+A=gallery('poisson',P);
+b = ones(P^2,1);
+
+tic 
+    x1=my_vector_jacobi(A,b,100);
+t1=toc;
+fprintf("my vector jacobi takes %2.8f seconds\n",t1);
+
+tic 
+    x2=my_jacobi(A,b,100);
+t2=toc;
+fprintf("my component-wise jacobi takes %10.8f seconds\n",t2);
+
+fprintf("my_vector_jacobi is %10.8f times faster than my_jacobi\n", t2/t1);
+
+
+%% Problem 2.d
+
+P=[ 10, 20, 40, 80, 160];
+error=zeros(size(P,2),1);
+
+for i=1:size(P,2)
+    A=gallery('poisson',P(i));
+    b = ones(P(i)^2,1);
+    xtrue=A\b;
+    x=my_vector_jacobi(A,b,100);
+    error(i)=norm(xtrue-x,2)/norm(xtrue,2);
+end
+
+%% Problem 3.c
+
+tot_it = [50, 100, 200, 400, 800, 1600];
+error=zeros(size(tot_it,2),3);
+
+for i=1:size(tot_it,2)
+    A=gallery('poisson',160);
+    b = ones(160^2,1);
+    xtrue=A\b;
+    x_jacobi=my_vector_jacobi(A,b,tot_it(i));
+    x_CG=my_CG(A,b,tot_it(i));
+    x_gauss=my_gauss_siedel(A,b,tot_it(i));
+    error(i,1)=norm(xtrue-x_jacobi,2)/norm(xtrue,2);
+    error(i,2)=norm(xtrue-x_gauss,2)/norm(xtrue,2);
+    error(i,3)=norm(xtrue-x_CG,2)/norm(xtrue,2);
+end
+
+fprintf("Num Iterations\tError Jacobi\tError GS\tError CG\n");
+for i=1:size(tot_it,2)
+fprintf("%4.0f\t\t %2.5f\t%2.5f\t\t%2.5f\t\n",tot_it(i),error(i,1),error(i,2),error(i,3));
+end
+
+%% Problem 4.a
+P=10;
+A=gallery('poisson',P);
+b = ones(P^2,1);
+
+nonZeros = nnz(A)/size(A,1);
+
+fprintf("The number of nonzeros in A is %3.6f\n", nonZeros);
+fprintf("As P increases the number of nonzeros approaches 5.")
+
+%% Problem 4.b
+
+fprintf("see in attached written solutions.\n")
+
+
+
+##### SOURCE END #####
+--></body></html>
