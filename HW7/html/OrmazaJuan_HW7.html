@@ -1,0 +1,316 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazaJuan_HW7</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-10-19"><meta name="DC.source" content="OrmazaJuan_HW7.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Homework 7</a></li><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 2 and 3</a></li><li><a href="#4">Problem 4</a></li><li><a href="#5">Problem 5</a></li></ul></div><h2 id="1">Homework 7</h2><p>Juan Alejandro Ormaza October 19 2021 CS375</p><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+format <span class="string">long</span> <span class="string">e</span>
+</pre><h2 id="2">Problem 1</h2><pre class="codeinput">f_x=@(x) x.^3 - 8;
+d_f=@(x) 3*x.^2;
+
+x=linspace(-5,5,100);
+
+figure()
+plot(x,f_x(x))
+hold <span class="string">on</span>
+plot(2,0,<span class="string">'bo'</span>)
+title(<span class="string">'Problem 1'</span>);
+xlabel(<span class="string">'x'</span>);
+ylabel(<span class="string">'y=x^3 - 8'</span>);
+grid <span class="string">on</span>
+
+fprintf(<span class="string">"there is only one zero at x=2\n\n"</span>)
+</pre><pre class="codeoutput">there is only one zero at x=2
+
+</pre><img vspace="5" hspace="5" src="OrmazaJuan_HW7_01.png" alt=""> <h2 id="3">Problem 2 and 3</h2><pre class="codeinput">TOL=10^(-10);
+
+x_bisection = my_bisection(f_x,1,4,TOL);
+
+x_newton = my_newton(f_x,d_f,4,TOL);
+
+x_secant = my_secant(f_x,1,4,TOL);
+
+fprintf(<span class="string">"the root of the bisection method is %2.14f and it took %3.0f iterations\n\n"</span>,x_bisection(end),length(x_bisection));
+
+fprintf(<span class="string">"the root of Newton's method is %2.14f and it took %3.0f iterations\n\n"</span>,x_newton(end),length(x_newton));
+
+fprintf(<span class="string">"the root of the Secant method is %2.14f and it took %3.0f iterations\n\n"</span>,x_secant(end),length(x_secant));
+</pre><pre class="codeoutput">the root of the bisection method is 2.00000000002910 and it took  35 iterations
+
+the root of Newton's method is 2.00000000000000 and it took   8 iterations
+
+the root of the Secant method is 2.00000000000000 and it took  11 iterations
+
+</pre><h2 id="4">Problem 4</h2><pre class="codeinput">ek_bisection = abs(x_bisection-2);
+
+ek_newton = abs(x_newton-2);
+
+ek_secant = abs(x_secant-2);
+
+
+ek1_bisection = circshift(ek_bisection,-1);
+
+ek1_newton = circshift(ek_newton,-1);
+
+ek1_secant = circshift(ek_secant,-1);
+
+
+bisection_conv = ek1_bisection./ek_bisection;
+bisection_conv(length(bisection_conv))=0;
+
+newton_conv = ek1_newton./(ek_newton.^2);
+<span class="comment">%newton_conv(length(newton_conv))=0;</span>
+
+secant_conv = ek1_secant./(ek_secant.^(1.62));
+<span class="comment">%secant_conv(length(secant_conv))=0;</span>
+
+
+iter1=1:1:length(x_bisection);
+
+iter2=1:1:length(x_newton);
+
+iter3=1:1:length(x_secant);
+
+fprintf(<span class="string">"Bisection method:\n"</span>)
+fprintf(<span class="string">"iteration\t error\t\t convergence rate\n"</span>)
+fprintf(<span class="string">"%3.0f \t    %3.12f \t %3.12f\n"</span>,[iter1;ek_bisection;bisection_conv])
+fprintf(<span class="string">"\n"</span>)
+
+fprintf(<span class="string">"\nNewton's method:\n"</span>)
+fprintf(<span class="string">"iteration\t error\t\t convergence rate\n"</span>)
+fprintf(<span class="string">"%3.0f \t    %3.12f \t %3.12f\n"</span>,[iter2;ek_newton;newton_conv])
+fprintf(<span class="string">"\n"</span>)
+
+fprintf(<span class="string">"\nSecant method:\n"</span>)
+fprintf(<span class="string">"iteration\t error\t\t convergence rate\n"</span>)
+fprintf(<span class="string">"%3.0f \t    %3.12f \t %3.12f\n"</span>,[iter3;ek_secant;secant_conv])
+fprintf(<span class="string">"\n"</span>)
+</pre><pre class="codeoutput">Bisection method:
+iteration	 error		 convergence rate
+  1 	    0.500000000000 	 0.500000000000
+  2 	    0.250000000000 	 0.500000000000
+  3 	    0.125000000000 	 0.500000000000
+  4 	    0.062500000000 	 0.500000000000
+  5 	    0.031250000000 	 0.500000000000
+  6 	    0.015625000000 	 0.500000000000
+  7 	    0.007812500000 	 0.500000000000
+  8 	    0.003906250000 	 0.500000000000
+  9 	    0.001953125000 	 0.500000000000
+ 10 	    0.000976562500 	 0.500000000000
+ 11 	    0.000488281250 	 0.500000000000
+ 12 	    0.000244140625 	 0.500000000000
+ 13 	    0.000122070312 	 0.500000000000
+ 14 	    0.000061035156 	 0.500000000000
+ 15 	    0.000030517578 	 0.500000000000
+ 16 	    0.000015258789 	 0.500000000000
+ 17 	    0.000007629395 	 0.500000000000
+ 18 	    0.000003814697 	 0.500000000000
+ 19 	    0.000001907349 	 0.500000000000
+ 20 	    0.000000953674 	 0.500000000000
+ 21 	    0.000000476837 	 0.500000000000
+ 22 	    0.000000238419 	 0.500000000000
+ 23 	    0.000000119209 	 0.500000000000
+ 24 	    0.000000059605 	 0.500000000000
+ 25 	    0.000000029802 	 0.500000000000
+ 26 	    0.000000014901 	 0.500000000000
+ 27 	    0.000000007451 	 0.500000000000
+ 28 	    0.000000003725 	 0.500000000000
+ 29 	    0.000000001863 	 0.500000000000
+ 30 	    0.000000000931 	 0.500000000000
+ 31 	    0.000000000466 	 0.500000000000
+ 32 	    0.000000000233 	 0.500000000000
+ 33 	    0.000000000116 	 0.500000000000
+ 34 	    0.000000000058 	 0.500000000000
+ 35 	    0.000000000029 	 0.000000000000
+
+
+Newton's method:
+iteration	 error		 convergence rate
+  1 	    2.000000000000 	 0.208333333333
+  2 	    0.833333333333 	 0.318339100346
+  3 	    0.221068819685 	 0.435296037791
+  4 	    0.021273536809 	 0.493001916400
+  5 	    0.000223114608 	 0.499925636500
+  6 	    0.000000024886 	 0.717046602291
+  7 	    0.000000000000 	 0.000000000000
+  8 	    0.000000000000 	 Inf
+
+
+Secant method:
+iteration	 error		 convergence rate
+  1 	    1.000000000000 	 2.000000000000
+  2 	    2.000000000000 	 0.216890309240
+  3 	    0.666666666667 	 0.815994397306
+  4 	    0.423076923077 	 0.876387440260
+  5 	    0.217518135116 	 0.579055527207
+  6 	    0.048917344679 	 0.667701420151
+  7 	    0.005029353441 	 0.662748984007
+  8 	    0.000125256065 	 0.661541563095
+  9 	    0.000000315494 	 0.672011570641
+ 10 	    0.000000000020 	 0.000000000000
+ 11 	    0.000000000000 	 Inf
+
+</pre><h2 id="5">Problem 5</h2><pre class="codeinput"><span class="comment">% BY HAND PROBLEM ATTACHED TO PDF</span>
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Homework 7
+% Juan Alejandro Ormaza
+% October 19 2021
+% CS375
+clear all; clc; close all;
+format long e
+
+%% Problem 1
+f_x=@(x) x.^3 - 8;
+d_f=@(x) 3*x.^2;
+
+x=linspace(-5,5,100);
+
+figure()
+plot(x,f_x(x))
+hold on
+plot(2,0,'bo')
+title('Problem 1');
+xlabel('x');
+ylabel('y=x^3 - 8');
+grid on
+
+fprintf("there is only one zero at x=2\n\n")
+
+%% Problem 2 and 3
+
+TOL=10^(-10);
+
+x_bisection = my_bisection(f_x,1,4,TOL);
+
+x_newton = my_newton(f_x,d_f,4,TOL);
+
+x_secant = my_secant(f_x,1,4,TOL);
+
+fprintf("the root of the bisection method is %2.14f and it took %3.0f iterations\n\n",x_bisection(end),length(x_bisection));
+
+fprintf("the root of Newton's method is %2.14f and it took %3.0f iterations\n\n",x_newton(end),length(x_newton));
+
+fprintf("the root of the Secant method is %2.14f and it took %3.0f iterations\n\n",x_secant(end),length(x_secant));
+
+%% Problem 4
+
+ek_bisection = abs(x_bisection-2);
+
+ek_newton = abs(x_newton-2);
+
+ek_secant = abs(x_secant-2);
+
+
+ek1_bisection = circshift(ek_bisection,-1);
+
+ek1_newton = circshift(ek_newton,-1);
+
+ek1_secant = circshift(ek_secant,-1);
+
+
+bisection_conv = ek1_bisection./ek_bisection;
+bisection_conv(length(bisection_conv))=0;
+
+newton_conv = ek1_newton./(ek_newton.^2);
+%newton_conv(length(newton_conv))=0;
+
+secant_conv = ek1_secant./(ek_secant.^(1.62));
+%secant_conv(length(secant_conv))=0;
+
+
+iter1=1:1:length(x_bisection);
+
+iter2=1:1:length(x_newton);
+
+iter3=1:1:length(x_secant);
+
+fprintf("Bisection method:\n")
+fprintf("iteration\t error\t\t convergence rate\n")
+fprintf("%3.0f \t    %3.12f \t %3.12f\n",[iter1;ek_bisection;bisection_conv])
+fprintf("\n")
+
+fprintf("\nNewton's method:\n")
+fprintf("iteration\t error\t\t convergence rate\n")
+fprintf("%3.0f \t    %3.12f \t %3.12f\n",[iter2;ek_newton;newton_conv])
+fprintf("\n")
+
+fprintf("\nSecant method:\n")
+fprintf("iteration\t error\t\t convergence rate\n")
+fprintf("%3.0f \t    %3.12f \t %3.12f\n",[iter3;ek_secant;secant_conv])
+fprintf("\n")
+
+
+%% Problem 5
+
+% BY HAND PROBLEM ATTACHED TO PDF
+
+
+
+
+##### SOURCE END #####
+--></body></html>

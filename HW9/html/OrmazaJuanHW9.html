@@ -1,0 +1,217 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazaJuanHW9</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-11-02"><meta name="DC.source" content="OrmazaJuanHW9.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">CS375 HOMEWORK 9</a></li><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 2</a></li></ul></div><h2 id="1">CS375 HOMEWORK 9</h2><p>Juan Alejandro Ormaza November 2, 2021</p><pre class="codeinput">clear <span class="string">all</span>;clc;close <span class="string">all</span>;
+format <span class="string">long</span> <span class="string">g</span>;
+</pre><h2 id="2">Problem 1</h2><pre class="codeinput">t=linspace(-1,1,11);
+f=@(x) 1./(1+25*x.^2);
+y=f(t);
+
+z=spline3_coeff(t,y);
+
+x_eval=-1:0.01:1;
+y_eval=zeros(1,length(x_eval));
+<span class="keyword">for</span> i=1:length(x_eval)
+    y_eval(i)=eval_spline(x_eval(i),t,y,z);
+<span class="keyword">end</span>
+
+plot(t,y);
+hold <span class="string">on</span>
+plot(x_eval,y_eval,<span class="string">'-o'</span>);
+xlabel(<span class="string">'x'</span>)
+ylabel(<span class="string">'y'</span>)
+title(<span class="string">'cubic spline interpolation'</span>)
+legend(<span class="string">'f(x)'</span>,<span class="string">'spline interpolation'</span>)
+
+fprintf(<span class="string">'the spline interpolation works really well near the endpoints and does not\n'</span>)
+fprintf(<span class="string">'appear to have the same issues as the lagrange or polynomial interpolation\n'</span>)
+fprintf(<span class="string">'with equispaced points.\n '</span>)
+</pre><pre class="codeoutput">the spline interpolation works really well near the endpoints and does not
+appear to have the same issues as the lagrange or polynomial interpolation
+with equispaced points.
+ </pre><img vspace="5" hspace="5" src="OrmazaJuanHW9_01.png" alt=""> <h2 id="3">Problem 2</h2><pre class="codeinput"><span class="comment">% 2.a see attachments</span>
+
+<span class="comment">% 2.b see attachments</span>
+
+<span class="comment">% 2.c</span>
+
+f_x=@(x) x*sin(x);
+exact_int = sin(pi)-pi*cos(pi);
+
+n=[4, 8, 16, 32];
+h=(pi-0)./n;
+integrals= zeros(1,length(n));
+error=zeros(1,length(n));
+
+<span class="keyword">for</span> i=1:length(n)
+    integrals(i)=comp_trap_int(f_x,0,pi,n(i));
+    error(i) = abs(exact_int-integrals(i));
+<span class="keyword">end</span>
+
+p=zeros(1,length(n)-1);
+
+<span class="keyword">for</span> i=1:length(n)-1
+    p(i)=log(error(i+1)/error(i))/log(h(i+1)/h(i));
+<span class="keyword">end</span>
+
+p=[0 p];
+
+fprintf(<span class="string">" n  approx integral\t    error\t convergence p\n"</span>);
+fprintf(<span class="string">"%2d  %2.10f\t %2.10f\t %2.10f\n"</span>,[n;integrals ;error; p])
+
+fprintf(<span class="string">"since the expected convergence for composite trapezoid is 2, it is possible to see\n"</span>)
+fprintf(<span class="string">"that as n increases, the convergence gets closer and closer to 2. indicating that the\n"</span>)
+fprintf(<span class="string">"expected convergence is being found.\n"</span>)
+
+<span class="comment">% 2.d see attachments</span>
+</pre><pre class="codeoutput"> n  approx integral	    error	 convergence p
+ 4  1.6698795626	 1.4717130910	 0.0000000000
+ 8  2.6880135827	 0.4535790709	 1.6980704688
+16  3.0186727993	 0.1229198543	 1.8836361114
+32  3.1097827181	 0.0318099355	 1.9501686104
+since the expected convergence for composite trapezoid is 2, it is possible to see
+that as n increases, the convergence gets closer and closer to 2. indicating that the
+expected convergence is being found.
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% CS375 HOMEWORK 9
+% Juan Alejandro Ormaza
+% November 2, 2021
+
+clear all;clc;close all;
+format long g;
+
+%% Problem 1
+
+t=linspace(-1,1,11);
+f=@(x) 1./(1+25*x.^2);
+y=f(t);
+
+z=spline3_coeff(t,y);
+
+x_eval=-1:0.01:1;
+y_eval=zeros(1,length(x_eval));
+for i=1:length(x_eval)
+    y_eval(i)=eval_spline(x_eval(i),t,y,z);
+end
+
+plot(t,y);
+hold on
+plot(x_eval,y_eval,'-o');
+xlabel('x')
+ylabel('y')
+title('cubic spline interpolation')
+legend('f(x)','spline interpolation')
+
+fprintf('the spline interpolation works really well near the endpoints and does not\n')
+fprintf('appear to have the same issues as the lagrange or polynomial interpolation\n')
+fprintf('with equispaced points.\n ')
+
+%% Problem 2
+
+% 2.a see attachments
+
+% 2.b see attachments
+
+% 2.c
+
+f_x=@(x) x*sin(x);
+exact_int = sin(pi)-pi*cos(pi);
+
+n=[4, 8, 16, 32];
+h=(pi-0)./n;
+integrals= zeros(1,length(n));
+error=zeros(1,length(n));
+
+for i=1:length(n)
+    integrals(i)=comp_trap_int(f_x,0,pi,n(i));
+    error(i) = abs(exact_int-integrals(i));
+end
+
+p=zeros(1,length(n)-1);
+
+for i=1:length(n)-1
+    p(i)=log(error(i+1)/error(i))/log(h(i+1)/h(i)); 
+end
+
+p=[0 p];
+
+fprintf(" n  approx integral\t    error\t convergence p\n");
+fprintf("%2d  %2.10f\t %2.10f\t %2.10f\n",[n;integrals ;error; p])
+
+fprintf("since the expected convergence for composite trapezoid is 2, it is possible to see\n")
+fprintf("that as n increases, the convergence gets closer and closer to 2. indicating that the\n")
+fprintf("expected convergence is being found.\n")
+
+% 2.d see attachments
+
+
+
+##### SOURCE END #####
+--></body></html>

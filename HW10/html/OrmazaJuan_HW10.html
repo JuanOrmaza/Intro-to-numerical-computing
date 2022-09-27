@@ -1,0 +1,158 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>OrmazaJuan_HW10</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-11-10"><meta name="DC.source" content="OrmazaJuan_HW10.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; }
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+span.typesection { color:#A0522D }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h2>Contents</h2><div><ul><li><a href="#1">Homework 10 CS375</a></li><li><a href="#2">Problem 1</a></li><li><a href="#3">Problem 2</a></li><li><a href="#4">Problem 2.b</a></li><li><a href="#5">Problem 2.c</a></li><li><a href="#6">Problem 2.d</a></li></ul></div><h2 id="1">Homework 10 CS375</h2><p>Juan Alejandro Ormaza November 10 2021</p><pre class="codeinput">clear <span class="string">all</span>; clc; close <span class="string">all</span>;
+format <span class="string">long</span> <span class="string">g</span>;
+</pre><h2 id="2">Problem 1</h2><p>a,b,c,d see attachments</p><h2 id="3">Problem 2</h2><pre class="codeinput">    <span class="comment">% a: see attachments.</span>
+</pre><h2 id="4">Problem 2.b</h2><pre class="codeinput">    f=@(x) x*sin(x);
+    gauss_int(f,0,pi)
+</pre><pre class="codeoutput">
+ans =
+
+          3.14377435398307
+
+</pre><h2 id="5">Problem 2.c</h2><pre class="codeinput">    comp_gauss_int(f,0,pi,10)
+</pre><pre class="codeoutput">
+ans =
+
+            3.141592655093
+
+</pre><h2 id="6">Problem 2.d</h2><pre class="codeinput">    exact_integral=pi;
+    n=[4,8,16,32];
+    p=zeros(1,length(n));
+    error = zeros(1,length(n));
+    h = zeros(1,length(n));
+    integral_results = zeros(1,length(n));
+
+    <span class="keyword">for</span> i=1:length(n)
+        integral_results(i) =  comp_gauss_int(f,0,pi,n(i));
+        error(i) = abs(exact_integral-comp_gauss_int(f,0,pi,n(i)));
+        h(i)=pi/n(i);
+        <span class="keyword">if</span>(i&gt;=2)
+            p(i)=log(error(i)/error(i-1))/log(h(i)/h(i-1));
+        <span class="keyword">end</span>
+    <span class="keyword">end</span>
+
+fprintf(<span class="string">" n approx integral\t error\t\t\t convergence p\n"</span>);
+fprintf(<span class="string">"%2d %2.10f\t\t %2.16f\t %2.10f\n"</span>,[n;integral_results ;error; p])
+</pre><pre class="codeoutput"> n approx integral	 error			 convergence p
+ 4 3.1415930272		 0.0000003735699172	 0.0000000000
+ 8 3.1415926593		 0.0000000057451479	 6.0228904358
+16 3.1415926537		 0.0000000000894151	 6.0056810619
+32 3.1415926536		 0.0000000000013953	 6.0018426554
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Homework 10 CS375
+% Juan Alejandro Ormaza
+% November 10 2021
+clear all; clc; close all;
+format long g;
+
+%% Problem 1
+    % a,b,c,d
+    % see attachments
+
+%% Problem 2
+
+    % a: see attachments.
+    
+%% Problem 2.b
+    f=@(x) x*sin(x);
+    gauss_int(f,0,pi)
+    
+%% Problem 2.c
+    comp_gauss_int(f,0,pi,10)
+
+%% Problem 2.d
+
+    exact_integral=pi;
+    n=[4,8,16,32];
+    p=zeros(1,length(n));
+    error = zeros(1,length(n));
+    h = zeros(1,length(n));
+    integral_results = zeros(1,length(n));
+
+    for i=1:length(n)
+        integral_results(i) =  comp_gauss_int(f,0,pi,n(i));
+        error(i) = abs(exact_integral-comp_gauss_int(f,0,pi,n(i)));
+        h(i)=pi/n(i);
+        if(i>=2)
+            p(i)=log(error(i)/error(i-1))/log(h(i)/h(i-1));
+        end
+    end
+
+fprintf(" n approx integral\t error\t\t\t convergence p\n");
+fprintf("%2d %2.10f\t\t %2.16f\t %2.10f\n",[n;integral_results ;error; p])
+
+
+
+
+
+##### SOURCE END #####
+--></body></html>
